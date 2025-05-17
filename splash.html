@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Welcome to ShalomLab</title>
+  <style>
+    /* Reset margin and padding */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: url('medical-lab-background.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: white;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* Overlay for background */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 30, 0.5);
+      z-index: 0;
+      pointer-events: none;
+      opacity: 0;
+      animation: overlayFadeIn 2s forwards;
+    }
+
+    @keyframes overlayFadeIn {
+      to {
+        opacity: 1;
+      }
+    }
+
+    .welcome-container {
+      position: relative;
+      z-index: 1;
+      max-width: 650px;
+      background: rgba(0, 0, 0, 0.75);
+      padding: 45px 40px;
+      border-radius: 20px;
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.7);
+      text-align: center;
+      animation: fadeInUp 1.6s ease forwards;
+      opacity: 0;
+      transform: translateY(40px);
+    }
+
+    /* Fade and slide up animation */
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .logo {
+      width: 180px;
+      margin-bottom: 25px;
+      animation: logoPopIn 1.2s ease forwards;
+      opacity: 0;
+      transform: scale(0.5);
+    }
+
+    @keyframes logoPopIn {
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    h1 {
+      font-family: 'Arial Black', Arial, sans-serif;
+      font-size: 44px;
+      margin-bottom: 18px;
+      text-shadow: 0 3px 6px rgba(0, 0, 0, 0.7);
+      letter-spacing: 1.5px;
+      animation: textFadeIn 2s ease forwards;
+      opacity: 0;
+      transform: translateY(10px);
+    }
+
+    p {
+      font-size: 21px;
+      line-height: 1.6;
+      color: #d0e8ffcc;
+      margin-bottom: 40px;
+      font-weight: 500;
+      animation: textFadeIn 2.5s ease forwards;
+      opacity: 0;
+      transform: translateY(10px);
+    }
+
+    @keyframes textFadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .cta-button {
+      background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+      color: white;
+      font-size: 21px;
+      font-weight: 600;
+      padding: 16px 44px;
+      border-radius: 12px;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 8px 20px rgba(52, 152, 219, 0.5);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      user-select: none;
+      animation: buttonPulse 3s infinite;
+      outline-offset: 3px;
+    }
+
+    .cta-button:hover {
+      background: linear-gradient(135deg, #2a7ecb 0%, #1e5ea6 100%);
+      box-shadow: 0 12px 30px rgba(41, 128, 185, 0.7);
+      transform: scale(1.12) rotate(-1.5deg);
+      animation-play-state: paused;
+    }
+
+    .cta-button:focus-visible {
+      outline: 3px solid #6ec1ff;
+      outline-offset: 3px;
+      box-shadow: 0 0 10px #6ec1ff;
+    }
+
+    /* Gentle pulse animation for button */
+    @keyframes buttonPulse {
+      0%, 100% {
+        box-shadow: 0 8px 20px rgba(52, 152, 219, 0.5);
+      }
+      50% {
+        box-shadow: 0 12px 30px rgba(52, 152, 219, 0.8);
+      }
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .welcome-container {
+        padding: 30px 25px;
+        max-width: 90%;
+      }
+      h1 {
+        font-size: 32px;
+      }
+      p {
+        font-size: 18px;
+        margin-bottom: 30px;
+      }
+      .cta-button {
+        font-size: 19px;
+        padding: 14px 38px;
+      }
+      .logo {
+        width: 140px;
+        margin-bottom: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="welcome-container" role="main" aria-label="Welcome to Shalom Laboratory">
+    <img src="shalomlab.png" alt="Shalom Laboratory Logo" class="logo" />
+    <h1>Welcome to Shalom Laboratory</h1>
+    <p>We provide fast, reliable, and accurate medical testing services to keep you healthy.</p>
+    <button class="cta-button" onclick="proceedToRegistration()" aria-label="Get Started and proceed to registration">Get Started</button>
+  </div>
+
+  <script>
+    // Redirect function
+    function proceedToRegistration() {
+      window.location.href = 'registration.html';
+    }
+  </script>
+
+</body>
+</html>
